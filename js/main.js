@@ -775,13 +775,11 @@ $(window).load(function(){
 	if ($("#google-map-listing").length) {
 		const toRe = {
 			'chinese_simplified': 'zh-CN',
-			'english': 'en',
 			'russian': 'ru',
-			'japanese': 'ja'
 		}
 	
 		const lang = toRe[localStorage.getItem('to')]
-		changeLanguage(lang || 'en')
+		changeLanguage(lang || 'ru')
 	}
 });
 
