@@ -23,7 +23,7 @@ function setupNoTranslateWords(languages, noTranslateWords) {
     }
 }
 const language = ['english', 'chinese_simplified', 'russian', 'japanese']
-const noTranslate = ['neuxserver', 'Neuxserver', 'benchmark', 'benchmarks', 'Benchmarks', 'GPU']
+const noTranslate = ['Ateamdata', 'Ateamdata', 'benchmark', 'benchmarks', 'Benchmarks', 'GPU']
 setupNoTranslateWords(language, noTranslate)
 
 // 不出现的select的选择语言

@@ -1,2 +1,2 @@
-# NeuxServer
-[NeuxServer web](https://oneclick.amplifyapp.com/button.svg)
+# Ateamdata
+[Ateamdata web](https://oneclick.amplifyapp.com/button.svg)
