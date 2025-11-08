@@ -22,7 +22,7 @@ function setupNoTranslateWords(languages, noTranslateWords) {
         }
     }
 }
-const language = ['english', 'chinese_simplified', 'russian', 'japanese']
+const language = ['english', 'chinese_simplified', 'japanese']
 const noTranslate = ['Ateamdata', 'Ateamdata', 'benchmark', 'benchmarks', 'Benchmarks', 'GPU']
 setupNoTranslateWords(language, noTranslate)
 

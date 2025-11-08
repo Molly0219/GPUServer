@@ -775,7 +775,7 @@ $(window).load(function(){
 	if ($("#google-map-listing").length) {
 		const toRe = {
 			'chinese_simplified': 'zh-CN',
-			'russian': 'ru',
+
 		}
 	
 		const lang = toRe[localStorage.getItem('to')]
