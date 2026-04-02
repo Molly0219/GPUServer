@@ -1,8 +1,8 @@
 
 			// Map Markers
 			var mapMarkers = [{
-				address: "14616 NW Rich Ct, Portland, Oregon 97229",
-				html: "<strong>14616 NW Rich Ct, Portland, Oregon 97229",
+				address: "2189 SW 198TH AVE BEAVERTON OR 97003",
+				html: "<strong>2189 SW 198TH AVE BEAVERTON OR 97003",
 				icon: {
 					image: "images/pin.png",
 					iconsize: [26, 46],
