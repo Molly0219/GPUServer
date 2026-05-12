@@ -147,8 +147,7 @@ footer,
 header,
 .example-tabs,
 .listing-slider,
-.car-info,
-#google-map-listing {
+.car-info {
     display: none;
 }
 

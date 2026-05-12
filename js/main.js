@@ -1,8 +1,3 @@
-function hidePage() {
-	document.body.style.opacity = 0;
-	document.body.style.visibility = 'hidden';
-}
-
 jQuery(document).ready( function($){
 	$.fn.evenElements = function() {
 		var heights  = [];
@@ -633,19 +628,12 @@ jQuery(document).ready( function($){
 
 	function print_tabs(){
 		if(!$(".print_tabs").length){
-			// generate google map
-			var longitude  = $("#google-map-listing").data("longitude");
-			var latitude   = $("#google-map-listing").data("latitude");
-			var zoom       = $("#google-map-listing").data("zoom");
-
-			var google_map = "<img src='http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=" + zoom + "&size=700x200&markers=color:blue|label:S|" + latitude + "," + longitude + "&sensor=false'>";
-
 			$(".example-tabs").each( function() {
 				var tabs_html = "";
 				$(this).find(".nav-tabs li").each( function(index, element) {
 					tabs_html += "<div><h2>" + $(this).text() + "</h2><br />";
 
-					tabs_html += ($(this).find("a").attr("href") == "#location" ? google_map : $(".tab-content .tab-pane").eq(index).html()) + "</div><br /><br />";
+					tabs_html += $(".tab-content .tab-pane").eq(index).html() + "</div><br /><br />";
 				});
 
 				$(this).after("<div class='print_friendly print_tabs'>" + tabs_html + "</div>");
@@ -754,160 +742,6 @@ jQuery(document).ready( function($){
 	}
 
 });
-
-var map;
-var currentLanguage = '';
-
-// have to wait until DOM is fully loaded (images too)
-$(window).load(function(){
-	// $('#myTab a').click(function (e) {
-	// 	e.preventDefault();
-	// 	$(this).tab('show');
-
-	// 	var index = $(this).parent().index();
-
-	// 	if(index == 3){
-	// 		setTimeout( function(){
-	// 			init_google_map();
-	// 		}, 500);
-	// 	}
-	// });
-	if ($("#google-map-listing").length) {
-		const toRe = {
-			'chinese_simplified': 'zh-CN',
-
-		}
-	
-		const lang = toRe[localStorage.getItem('to')]
-		changeLanguage(lang || 'ru')
-	}
-});
-
-// google map
-function init_google_map(){
-		var latitude     = $("#google-map-listing").data('latitude');
-		var longitude    = $("#google-map-listing").data('longitude');
-		var zoom         = $("#google-map-listing").data('zoom');
-		var scroll_wheel = $("#google-map-listing").data('scroll');
-		var style        = $("#google-map-listing").data('style');
-		var parallax     = $("#google-map-listing").data('parallax');
-
-		if(latitude && longitude){
-			var myLatlng = new google.maps.LatLng(latitude, longitude);
-			var myOptions = {
-				zoom: zoom,
-				center: myLatlng,
-				popup: true,
-				mapTypeId: google.maps.MapTypeId.ROADMAP,
-				gestureHandling: 'cooperative'
-			}
-
-			// if(parallax != false && typeof parallax == "undefined"){
-			// 	myOptions.scroll = {
-			// 		x:$(window).scrollLeft(),
-			// 		y:$(window).scrollTop()
-			// 	}
-			// }
-
-			if(scroll_wheel == false && typeof scroll_wheel != "undefined"){
-				myOptions.scrollwheel = false;
-			}
-
-			if(typeof style != "undefined"){
-				myOptions.styles = style;
-			}
-
-			map = new google.maps.Map(document.getElementById("google-map-listing"), myOptions);
-
-			var marker = new google.maps.Marker({
-				position: myLatlng,
-				map: map,
-				title: "Our Location"
-			});
-
-			if(parallax != false && typeof parallax == "undefined"){
-				var offset = $("#google-map-listing").offset();
-				// map.panBy(((myOptions.scroll.x-offset.left)/3),((myOptions.scroll.y-offset.top)/3));
-
-				google.maps.event.addDomListener(window, 'scroll', function(){
-					var scrollY = $(window).scrollTop(),
-						scrollX = $(window).scrollLeft(),
-						scroll  = map.get('scroll');
-
-					// if(scroll){
-					// 	map.panBy(-((scroll.x-scrollX)/3),-((scroll.y-scrollY)/3));
-					// }
-
-					map.set('scroll',{
-						x:scrollX,
-						y:scrollY
-					});
-				});
-			}
-
-			google.maps.event.addListener(marker, 'click', function() {
-				map.setZoom(zoom);
-			});
-		}
-}
-
-// 清理地图实例
-function clearMap() {
-	if (map && map.setMap) {
-		// 保存当前状态
-		const currentState = {
-			center: map.getCenter(),
-			zoom: map.getZoom()
-		};
-		
-		// 清除地图
-		map.setMap(null);
-		map = null;
-		
-		return currentState;
-	}
-	return null;
-}
-
-
-// 切换语言
-function changeLanguage(lang) {
-	console.log(lang)
-	console.log(currentLanguage)
-	if (currentLanguage === lang) return;
-
-	const previousState = clearMap();
-	currentLanguage = lang
-
-	const scripts = document.getElementsByTagName('script');
-	let retinaSct;
-
-	Array.from(scripts).forEach(script => {
-		if (script.src.includes('maps.googleapis.com')) {
-			script.remove();
-		}
-
-		if (script.src.includes('retina.js')){
-			retinaSct = script
-		}
-	});
-
-	// 清除可能存在的 Google Maps 相关的全局变量
-	delete window?.google;
-
-	// 加载新的地图脚本
-	const script = document.createElement('script');
-	script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDz5VLCot1bC5XfatnuFneBE4fPZn9htdU&language=${lang}`;
-	script.async = true;
-	script.defer = true;
-	
-	// 添加加载完成事件监听
-	script.addEventListener('load', function() {
-		init_google_map();
-	});
-	
-	retinaSct.parentNode.insertBefore(script, retinaSct.nextSibling);
-}
 
 function rev_iframe(){
 	jQuery('.tp-banner').revolution().revnext();
