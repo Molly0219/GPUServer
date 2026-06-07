@@ -233,10 +233,10 @@ jQuery(document).ready( function($){
 
 				if($(this).hasClass("p-collapse")) {
 					$table.css("height", "1000px");
-					$(this).removeClass("p-collapse").text("查看更多");
+					$(this).removeClass("p-collapse").text("Read more");
 				} else {
 					$table.css("height", "auto");
-					$(this).addClass("p-collapse").text("收起");
+					$(this).addClass("p-collapse").text("Collapse");
 				}
 
 				translate.execute();

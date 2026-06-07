@@ -1,0 +1,23 @@
+{
+  "name": "gpuserver",
+  "version": "1.0.0",
+  "description": "[Ateamdata web](https://oneclick.amplifyapp.com/button.svg)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-mollyNeuxserver:Molly0219/GPUServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}
