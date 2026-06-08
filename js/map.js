@@ -1,8 +1,8 @@
 
 			// Map Markers
 			var mapMarkers = [{
-				address: "2189 SW 198TH AVE BEAVERTON OR 97003",
-				html: "<strong>2189 SW 198TH AVE BEAVERTON OR 97003",
+				address: "520 SW YAMHILL ST PORTLAND OR 97204 USA",
+				html: "<strong>520 SW YAMHILL ST PORTLAND OR 97204 USA",
 				icon: {
 					image: "images/pin.png",
 					iconsize: [26, 46],
