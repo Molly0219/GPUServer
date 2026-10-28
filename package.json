@@ -1,13 +1,15 @@
 {
   "name": "gpuserver",
   "version": "1.0.0",
-  "description": "[Ateamdata web](https://oneclick.amplifyapp.com/button.svg)",
-  "main": "index.js",
+  "description": "Ateamdata static website — GPU server sourcing and systems integration",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build-site.mjs",
+    "icons": "node scripts/build-icons.mjs",
+    "test": "node scripts/check-site.mjs"
   },
   "repository": {
     "type": "git",
