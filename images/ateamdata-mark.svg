@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
   <title>Ateamdata</title>
-  <rect width="32" height="32" rx="7" fill="#121813"/>
-  <path fill="#76b900" fill-rule="evenodd" d="M13 6h6l9 21h-6l-1.7-4h-8.6L10 27H4L13 6Zm1 12h4l-2-5-2 5Z"/>
+  <rect width="40" height="40" rx="8" fill="#121813"/>
+  <path fill="#76b900" d="M7 7h10v6h-4v4H7zm16 0h10v10h-6v-4h-4zM7 23h6v4h4v6H7zm20 0h6v10H23v-6h4z"/>
 </svg>
